@@ -21,7 +21,7 @@ class NotificationService {
 
     async fetchPendingEmails(timeStemp) {
         try {
-            const response = await this.notificationRepository.getAll();
+            const response = await this.notificationRepository.get({status: "PENDING"});
             return response;
         } catch (error) {
             console.log(error);

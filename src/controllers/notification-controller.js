@@ -4,7 +4,7 @@ const { NotificationService } = require('../services/index');
 
 const notificationService = new NotificationService();
 
-const create = async () => {
+const create = async (req, res) => {
     try {
         const ticket = await notificationService.createNotificationTicket(req.body);
         return res.status(StatusCodes.CREATED).json({
