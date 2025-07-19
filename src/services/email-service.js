@@ -28,6 +28,15 @@ class NotificationService {
         }
     }
 
+    async updateTicket(ticketId, data) {
+        try {
+            const response = await this.notificationRepository.updateTicket(ticketId, data);
+            return response;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     async createNotificationTicket(data) {
         try {
             const ticket = await this.notificationRepository.createNotificationTicket(data);
