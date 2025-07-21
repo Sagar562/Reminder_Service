@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const { PORT } = require('./config/serverConfig');
-const { createChannel } = require('./utils/messageQueue');
+const { PORT, REMINDER_BINDING_KEY } = require('./config/serverConfig');
+const { createChannel, subscribeMessage } = require('./utils/messageQueue');
 const apiRoutes = require('./routes/index');
 const jobs = require('./utils/job');
 
@@ -13,6 +13,8 @@ const startServer = async () => {
     app.use(bodyParser.urlencoded( {extended: true} ));
 
     const channel = await createChannel();
+    subscribeMessage(channel, undefined, REMINDER_BINDING_KEY);
+
     
     app.use('/api', apiRoutes);
 

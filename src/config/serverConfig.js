@@ -7,5 +7,6 @@ module.exports = {
     EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
     MESSAGE_BROKER_URL: process.env.MESSAGE_BROKER_URL, 
     EXCHANGE_NAME: process.env.EXCHANGE_NAME,
+    QUEUE_NAME: process.env.QUEUE_NAME,
     REMINDER_BINDING_KEY: process.env.REMINDER_BINDING_KEY
 }
