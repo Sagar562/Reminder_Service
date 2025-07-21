@@ -45,6 +45,10 @@ class NotificationService {
             console.log(error);
         }
     }
+
+    async testingQueue (data) {
+        console.log("Inside service layer", data);
+    }
 }
 
 module.exports = NotificationService;
