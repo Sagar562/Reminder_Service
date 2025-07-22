@@ -16,7 +16,7 @@ const startServer = async () => {
     app.use(bodyParser.urlencoded( {extended: true} ));
 
     const channel = await createChannel();
-    subscribeMessage(channel, notificationService.testingQueue, REMINDER_BINDING_KEY);
+    subscribeMessage(channel, notificationService.subscribeEvents.bind(notificationService), REMINDER_BINDING_KEY);
 
     
     app.use('/api', apiRoutes);
